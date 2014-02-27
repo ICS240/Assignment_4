@@ -1,28 +1,40 @@
 package App_code;
 
+import java.io.IOException;
 import java.util.ArrayList;
-
+/**
+ * Keeps a collection of students
+ * 
+ * @author Group 3
+ * 
+ */
 public class StudentCollection {
 	// list of students in the college
 	private ArrayList<Student> studentList;
+	private ObjectSerializer xmlWriter;
 	/**
 	 * Default constructor
 	 */
-	public StudentCollection()
+	public StudentCollection() 
 	{
 		studentList = new ArrayList<Student>();
+		xmlWriter = new ObjectSerializer();
 	}
 	/**
 	 * Overloaded Constructor
 	 * @param a_file_name name of the XML file
+	 * @throws IOException 
+	 * @throws ClassNotFoundException
 	 */
-	public StudentCollection(String a_file_name)
+	public StudentCollection(String a_file_name) throws IOException, ClassNotFoundException
 	{
 		// need to read through an xml file here
+		Object obj = xmlWriter.objectRead(a_file_name);
+		System.out.println(obj.getClass().toString());
 	}
 	/**
 	 * removes a student
-	 * @param techId unique identifier of the studnet
+	 * @param techId unique identifier of the student
 	 * @returns
 	 * 	true if the student was successfully removed
 	 */
@@ -61,5 +73,17 @@ public class StudentCollection {
 		}
 		
 		return removed;
+	}
+	
+	public String toString()
+	{
+		StringBuilder string = new StringBuilder();
+		
+		for(Student student : studentList)
+		{
+			string.append(student);
+		}
+		
+		return string.toString();
 	}
 }

@@ -3,6 +3,7 @@ package App_code;
 import java.util.ArrayList;
 /**
  * Student Class holds courseList, name of the student, and a unique identifier
+ * 
  * @author Group 3
  *
  */
@@ -119,6 +120,7 @@ public class Student {
 	public double calculateGPA()
 	{
 		int total = 0;
+		
 		for(Course course : courseList)
 		{
 			switch(course.getGrade())
@@ -159,5 +161,20 @@ public class Student {
 		}
 		
 		return (total/courseList.size());
+	}
+	
+	public String toString()
+	{
+		StringBuilder string = new StringBuilder();
+		string.append("ID: " + techId);
+		string.append("Name: " + name);
+		
+		for(Course course : courseList)
+		{
+			string.append("course: " + course);
+			string.append("\n");
+		}
+		
+		return string.toString();
 	}
 }

@@ -142,4 +142,16 @@ public class Course {
 	{
 		return new StudentCollection();
 	}
+	
+	public String toString()
+	{
+		StringBuilder string = new StringBuilder();
+		
+		string.append("\t Course ID: " + courseId);
+		string.append("\t Title: " + title);
+		string.append("\t Number of credits: " + numberOfCredits);
+		string.append("\t Grade: " + grade);
+		
+		return string.toString();
+	}
 }

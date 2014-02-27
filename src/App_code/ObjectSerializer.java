@@ -33,8 +33,10 @@ package App_code;
 
 import java.io.*;
 import java.beans.*;
-import java.util.*;
-
+/**
+ * Allows to read and write to an XML file to get Student information
+ *
+ */
 public class ObjectSerializer
 {
 	    /**
