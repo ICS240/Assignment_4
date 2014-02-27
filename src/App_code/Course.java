@@ -31,27 +31,113 @@ public class Course {
 		numberOfCredits = credits;
 		grade = courseGrade;
 	}
-
+	/**
+	 * Getter method
+	 * @return
+	 * 	returns the unique course identifier
+	 */
+	public int getCourseId()
+	{
+		return courseId;
+	}
+	/**
+	 * Setter method
+	 * @param courseID Unique identifier of the course
+	 * 	
+	 */
+	public void setCourseId(int courseID)
+	{
+		courseId = courseID;
+	}
+	/**
+	 * Getter method
+	 * @return
+	 * 	Gets the title of the course
+	 */
+	public String getCourseTitle()
+	{
+		return title;
+	}
+	/**
+	 * setter method
+	 * @param courseTitle title of the course
+	 */
+	public void setCourseTitle(String courseTitle)
+	{
+		title = courseTitle;
+	}
+	/**
+	 * Getter method
+	 * @return
+	 * 	gets the number of credits for the course
+	 */
+	public int getNumOfCredits()
+	{
+		return numberOfCredits;
+	}
+	/**
+	 * Setter method
+	 * @param numOfCredits number of credits the course is worth
+	 */
+	public void setNumOfCredits(int numOfCredits)
+	{
+		numberOfCredits = numOfCredits;
+	}
+	/**
+	 * Getter method
+	 * @return
+	 * 	the grade of the course
+	 */
+	public String getGrade()
+	{
+		return grade;
+	}
+	/**
+	 * Setter method
+	 * @param courseGrade grade of the course
+	 */
+	public void setGrade(String courseGrade)
+	{
+		grade = courseGrade;
+	}
+	/**
+	 * 
+	 * @param a_student
+	 */
 	public void addStudent(Student a_student)
 	{
-		
+		// is this really needed?
 	}
-
+	/**
+	 * 
+	 * @param a_student
+	 * @return
+	 */
 	public boolean deleteStudent(Student a_student)
 	{
 		return true;
 	}
-
+	/**
+	 * 
+	 * @param a_tech_id
+	 * @return
+	 */
 	public boolean deleteStudent(int a_tech_id)
 	{
 		return true;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public boolean writeToFile()
 	{
 		return true;
 	}
-
+	/**
+	 * 
+	 * @return
+	 */
 	public StudentCollection readFromFile()
 	{
 		return new StudentCollection();

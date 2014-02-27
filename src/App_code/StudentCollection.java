@@ -10,15 +10,15 @@ public class StudentCollection {
 	 */
 	public StudentCollection()
 	{
-		
+		studentList = new ArrayList<Student>();
 	}
 	/**
-	 * 
-	 * @param a_file_name
+	 * Overloaded Constructor
+	 * @param a_file_name name of the XML file
 	 */
 	public StudentCollection(String a_file_name)
 	{
-		
+		// need to read through an xml file here
 	}
 	/**
 	 * removes a student
@@ -28,7 +28,18 @@ public class StudentCollection {
 	 */
 	public boolean removeStudent(int techId)
 	{
-		return true;
+		boolean removed = false;
+		
+		for(Student student : studentList)
+		{
+			if(student.getTechId() == techId)
+			{
+				removed = studentList.remove(student);
+				break;
+			}
+		}
+		
+		return removed;
 	}
 	/**
 	 * removes a student
@@ -38,6 +49,17 @@ public class StudentCollection {
 	 */
 	public boolean removeStudent(String studentName)
 	{
-		return true;
+		boolean removed = false;
+		
+		for(Student student : studentList)
+		{
+			if(student.getName().equals(studentName))
+			{
+				removed = studentList.remove(student);
+				break;
+			}
+		}
+		
+		return removed;
 	}
 }
