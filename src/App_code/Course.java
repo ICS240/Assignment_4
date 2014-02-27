@@ -39,21 +39,21 @@ public class Course {
 
 	public boolean deleteStudent(Student a_student)
 	{
-		
+		return true;
 	}
 
 	public boolean deleteStudent(int a_tech_id)
 	{
-		
+		return true;
 	}
 
 	public boolean writeToFile()
 	{
-		
+		return true;
 	}
 
 	public StudentCollection readFromFile()
 	{
-		
+		return new StudentCollection();
 	}
 }
