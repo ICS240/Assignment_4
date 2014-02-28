@@ -148,15 +148,16 @@ public class Course implements Serializable {
 	{
 		return new StudentCollection();
 	}
-	
+	/**
+	 * Returns the course id, title, number of credits and grade. 
+	 */
 	public String toString()
 	{
 		StringBuilder string = new StringBuilder();
-		
-		string.append("\t Course ID: " + courseId);
-		string.append("\t Title: " + title);
-		string.append("\t Number of credits: " + numberOfCredits);
-		string.append("\t Grade: " + grade);
+		string.append(courseId + "\t\t");
+		string.append(title + "\t");
+		string.append(numberOfCredits + "\t");
+		string.append(grade + "\n");
 		
 		return string.toString();
 	}

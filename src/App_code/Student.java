@@ -12,7 +12,7 @@ public class Student implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2972997513722401418L;
+	private static final long serialVersionUID = 1L;
 	// list of courses the student has taken
 	private ArrayList<Course> courseList;
 	// name of the student
@@ -26,6 +26,26 @@ public class Student implements Serializable {
 	{
 		name = null;
 		techId = 0;
+		courseList = new ArrayList<Course>();
+	}
+	/**
+	 * Overloaded Constructor
+	 * @param studentName name of the student
+	 */
+	public Student(String studentName)
+	{
+		name = studentName;
+		courseList = new ArrayList<Course>();
+	}
+	/**
+	 * overloaded constructor
+	 * @param studentName name of the student
+	 * @param studentId unique identifier of the student
+	 */
+	public Student(String studentName, int studentId)
+	{
+		name = studentName;
+		techId = studentId;
 		courseList = new ArrayList<Course>();
 	}
 	/**
@@ -171,13 +191,13 @@ public class Student implements Serializable {
 	public String toString()
 	{
 		StringBuilder string = new StringBuilder();
-		string.append("ID: " + techId);
-		string.append("Name: " + name);
+		string.append("ID: " + techId + "\t");
+		string.append("Name: " + name + "\n");
+		string.append("Course ID\tTitle\t\tCredits\tGrade\n");
 		
-		for(Course course : courseList)
+		for(Course in : courseList)
 		{
-			string.append("course: " + course);
-			string.append("\n");
+			string.append(in);
 		}
 		
 		return string.toString();

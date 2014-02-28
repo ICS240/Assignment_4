@@ -13,7 +13,7 @@ public class StudentCollection implements Serializable {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8018529335748388453L;
+	private static final long serialVersionUID = 1L;
 	// list of students in the college
 	private ArrayList<Student> studentList;
 	private ObjectSerializer xmlWriter;
@@ -35,7 +35,6 @@ public class StudentCollection implements Serializable {
 	{
 		// need to read through an xml file here
 		Object obj = xmlWriter.objectRead(a_file_name);
-		
 		System.out.println(obj.getClass().toString());
 	}
 	/**
@@ -80,14 +79,67 @@ public class StudentCollection implements Serializable {
 		
 		return removed;
 	}
+	/**
+	 * adds a student to the student list
+	 * @param a_student student object
+	 */
+	public boolean addStudent(Student a_student)
+	{
+		return studentList.add(a_student);
+	}
+	/**
+	 * adds a student to the student list
+	 * @param studentName name of the student
+	 * @parm id unique identifier of the student
+	 */
+	public boolean addStudent(String studentName, int id)
+	{
+		return studentList.add(new Student(studentName, id));
+	}
+	/**
+	 * Returns a Student object
+	 * @param id unique identifier of the student
+	 * @return
+	 * 	The student by id, else null if no student is found
+	 */
+	public Student getStudent(int id)
+	{
+		for(Student in : studentList)
+		{
+			if(in.getTechId() == id)
+			{
+				return in;
+			}
+		}
+		
+		return null;
+	}
+	/**
+	 * Returns a Student object
+	 * @param studentName name of the student
+	 * @return
+	 * 	The student by id, else null if no student is found
+	 */
+	public Student getStudent(String studentName)
+	{
+		for(Student in : studentList)
+		{
+			if(in.getName().equals(studentName))
+			{
+				return in;
+			}
+		}
+		
+		return null;
+	}
 	
 	public String toString()
 	{
 		StringBuilder string = new StringBuilder();
 		
-		for(Student student : studentList)
+		for(Student in : studentList)
 		{
-			string.append(student);
+			string.append(in + "\n");
 		}
 		
 		return string.toString();
