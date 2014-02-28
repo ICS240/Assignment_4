@@ -1,5 +1,6 @@
 package App_code;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * Student Class holds courseList, name of the student, and a unique identifier
@@ -7,7 +8,11 @@ import java.util.ArrayList;
  * @author Group 3
  *
  */
-public class Student {
+public class Student implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2972997513722401418L;
 	// list of courses the student has taken
 	private ArrayList<Course> courseList;
 	// name of the student

@@ -1,6 +1,7 @@
 package App_code;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 /**
  * Keeps a collection of students
@@ -8,7 +9,11 @@ import java.util.ArrayList;
  * @author Group 3
  * 
  */
-public class StudentCollection {
+public class StudentCollection implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8018529335748388453L;
 	// list of students in the college
 	private ArrayList<Student> studentList;
 	private ObjectSerializer xmlWriter;
@@ -30,6 +35,7 @@ public class StudentCollection {
 	{
 		// need to read through an xml file here
 		Object obj = xmlWriter.objectRead(a_file_name);
+		
 		System.out.println(obj.getClass().toString());
 	}
 	/**
