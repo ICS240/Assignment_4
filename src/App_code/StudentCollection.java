@@ -64,30 +64,16 @@ public class StudentCollection implements Serializable {
 	 * @returns
 	 * 	true if the student was successfully removed
 	 */
-	public boolean removeStudent(String studentName)
+	public boolean removeStudent(Student a_student)
 	{
 		boolean removed = false;
-		int studentCount = 0;
-		int occurrences = 0;
-		Student targetStudent = null;
 		
 		for(Student student : studentList)
 		{
-			studentCount++;
-			if(student.getName().equals(studentName))
-			{
-				targetStudent = student;
-				occurrences++;
-			}
-			if(occurrences == 1 && studentCount == studentList.size())
-			{
-				removed = studentList.remove(targetStudent);
+			if(student == a_student){
+				studentList.remove(student);
+				removed = true;
 				break;
-			}
-			if(occurrences > 1 && studentCount == studentList.size())
-			{
-				System.out.println("There is more than one " + studentName
-						+ " please enter tech ID.");
 			}
 		}
 		
@@ -145,6 +131,26 @@ public class StudentCollection implements Serializable {
 		}
 		
 		return null;
+	}
+	
+	public boolean writeToFile(String a_file_name) throws IOException
+	{
+		boolean written = false;
+		try{
+			ObjectSerializer.objectWrite(this, a_file_name);
+			written = true;
+		}
+		catch(IOException ioe)
+		{
+			throw new IOException();
+		}
+		return written;
+	}
+	
+	public StudentCollection readFromFile(String a_file_name) throws ClassNotFoundException, IOException
+	{
+		Object collection = (StudentCollection) xmlWriter.objectRead(a_file_name);
+		return (StudentCollection) collection;
 	}
 	
 	public String toString()
