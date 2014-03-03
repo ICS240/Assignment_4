@@ -124,7 +124,7 @@ public class StudentCollection implements Serializable {
 	{
 		for(Student in : studentList)
 		{
-			if(in.getName().equals(studentName))
+			if(in.getName().toUpperCase().equals(studentName.toUpperCase()))
 			{
 				return in;
 			}
@@ -139,7 +139,7 @@ public class StudentCollection implements Serializable {
 		
 		for(Student in : studentList)
 		{
-			string.append(in + "\n");
+			string.append(in.getName() + "\n");
 		}
 		
 		return string.toString();
