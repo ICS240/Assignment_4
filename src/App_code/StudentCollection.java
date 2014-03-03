@@ -67,13 +67,27 @@ public class StudentCollection implements Serializable {
 	public boolean removeStudent(String studentName)
 	{
 		boolean removed = false;
+		int studentCount = 0;
+		int occurrences = 0;
+		Student targetStudent = null;
 		
 		for(Student student : studentList)
 		{
+			studentCount++;
 			if(student.getName().equals(studentName))
 			{
-				removed = studentList.remove(student);
+				targetStudent = student;
+				occurrences++;
+			}
+			if(occurrences == 1 && studentCount == studentList.size())
+			{
+				removed = studentList.remove(targetStudent);
 				break;
+			}
+			if(occurrences > 1 && studentCount == studentList.size())
+			{
+				System.out.println("There is more than one " + studentName
+						+ " please enter tech ID.");
 			}
 		}
 		
