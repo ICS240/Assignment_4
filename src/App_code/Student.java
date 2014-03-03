@@ -144,7 +144,7 @@ public class Student implements Serializable {
 	 */
 	public double calculateGPA()
 	{
-		int total = 0;
+		double total = 0;
 		
 		for(Course course : courseList)
 		{
