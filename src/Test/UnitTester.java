@@ -38,10 +38,10 @@ public class UnitTester {
 	/**
 	 * Adds a list of courses to a list of students
 	 * @precondition
-	 * 	TestMethod() must be called first
 	 */
 	public static void TestMethod2()
 	{
+		TestMethod();
 		for(int i = 0; i < 50; i++)
 		{
 			if(student.addStudent(new Student("Student_" + i, i)))
@@ -64,20 +64,7 @@ public class UnitTester {
 	 */
 	public static void TestMethod3()
 	{
-		for(int i = 0; i < 50; i++)
-		{
-			if(student.addStudent(new Student("Student_" + i, i)))
-			{
-				for(int j = 0; j < 30; j++)
-				{
-					student.getStudent(i).addCourse(new Course(j, ("course_" + j), j, "A"));
-				}
-			}
-			else
-			{
-				System.out.println("Error trying to add Student_" + i);
-			}
-		}
+		TestMethod2();
 		for(int i = 0; i < 50; i++)
 		{
 			try
