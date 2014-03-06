@@ -18,7 +18,7 @@ public class UnitTester {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		TestMethod3();
+		TestMethod4();
 	}
 	/**
 	 * Adds a list of students and then prints them out
@@ -32,8 +32,6 @@ public class UnitTester {
 				System.out.println("Error trying to add Student_" + i);
 			}
 		}
-		
-		//System.out.println(student);
 	}
 	/**
 	 * Adds a list of courses to a list of students
@@ -93,5 +91,29 @@ public class UnitTester {
 		}
 		
 		System.out.println(collection);
+	}
+	/**
+	 * Writes a StudentCollection Object, and reads a student Collection Object
+	 */
+	public static void TestMethod4()
+	{
+		TestMethod();
+		try {
+			student.writeToFile("StudentCollection");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		student = null;
+		
+		try {
+			student = student.readFromFile("StudentCollection");
+		} catch (ClassNotFoundException | IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		System.out.println(student);
 	}
 }

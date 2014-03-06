@@ -132,7 +132,16 @@ public class StudentCollection implements Serializable {
 		
 		return null;
 	}
-	
+	/**
+	 * Writes a StudentCollection Serialized Object to a File
+	 * @param a_file_name name of the file to save the student in
+	 * @return
+	 * 	<b>true</b> if the StudentCollection Object was successfully written,
+	 * <b>false</b> if there was an error. 
+	 * @throws IOException
+	 * 	Throws this error when there is no permissions, or the <i>iostream</i> could not be
+	 * 	generated. 
+	 */
 	public boolean writeToFile(String a_file_name) throws IOException
 	{
 		boolean written = false;
@@ -146,7 +155,17 @@ public class StudentCollection implements Serializable {
 		}
 		return written;
 	}
-	
+	/**
+	 * Reads a StudentCollection Object from a file
+	 * @param a_file_name name of the file to be read from
+	 * @return
+	 * 		The generated StudentCollection Object from the file
+	 * @throws ClassNotFoundException
+	 * 		The file does not contain a StudentCollection Object, Typically a casting error
+	 * @throws IOException
+	 * 		Throws this error when there is no permissions, or the <i>iostream</i> could not be
+	 * 		generated. 
+	 */
 	public StudentCollection readFromFile(String a_file_name) throws ClassNotFoundException, IOException
 	{
 		Object collection = (StudentCollection) xmlWriter.objectRead(a_file_name);
